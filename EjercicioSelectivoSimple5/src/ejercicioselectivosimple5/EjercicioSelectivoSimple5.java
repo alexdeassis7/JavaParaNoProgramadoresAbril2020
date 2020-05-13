@@ -31,10 +31,6 @@ public class EjercicioSelectivoSimple5 {
         //mostramos el precio final con el correspondiente descuento 
         System.out.println("el precio a pagar por sus " + numeroDeLaptops+ " Laptops es de " + total_a_pagar);
         
-        
-        
-        
-
     }
 
 }

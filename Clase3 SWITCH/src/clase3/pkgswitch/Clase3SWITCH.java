@@ -48,11 +48,9 @@ public class Clase3SWITCH {
             default:
                 System.out.println("la opcion " + opcionIngresada + " no es una opcion valida ");
         }
-
         if (opcionIngresada > 0 && opcionIngresada < 5) {
             System.out.println("El Resultado es : " + resultado);
         }
-
         System.out.println("Fin del programa ");
 
     }
