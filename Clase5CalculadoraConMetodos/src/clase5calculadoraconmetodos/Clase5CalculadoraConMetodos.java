@@ -9,34 +9,27 @@ public class Clase5CalculadoraConMetodos {
         float numero1 = 0, numero2 = 0;
         Scanner teclado = new Scanner(System.in);
         System.out.println("Welcome Calculadora Application ");
-        System.out.println("Ingrese la opcion deseada");
-        System.out.print(" 1) SUMAR \n 2) RESTAR \n 3) MULTIPLICAR \n 4) DIVIDIR");
-        opcionIngresada = teclado.nextInt();
+        do {
+            System.out.println("Ingrese la opcion deseada");
+            System.out.print(" 1) SUMAR \n 2) RESTAR \n 3) MULTIPLICAR \n 4) DIVIDIR");
+            opcionIngresada = teclado.nextInt();
 
-        if (opcionIngresada >= 1 && opcionIngresada <= 4) {
-            System.out.println("ingrese primer numero");
-            numero1 = teclado.nextFloat();
-            System.out.println("ingrese segundo numero");
-            numero2 = teclado.nextFloat();
-        }
-        
-        switch (opcionIngresada) {
-            case 1://SUMAR
-                System.out.println("El Resultado de la suma es " + sumar(numero1, numero2));
+            if (opcionIngresada >= 1 && opcionIngresada <= 4) {
+                System.out.println("ingrese primer numero");
+                numero1 = teclado.nextFloat();
+                System.out.println("ingrese segundo numero");
+                numero2 = teclado.nextFloat();
+                mostrarOpciones(opcionIngresada, numero1, numero2);
+            }
+            System.out.println("Desea realizar otra operacion \n presione 9 (SI) o 0 para salir ");
+            opcionIngresada = teclado.nextInt();
+            if (opcionIngresada == 0) {
                 break;
-            case 2://RESTAR
-                System.err.println("El resultado de la resta es " + restar(numero1, numero2));
-                break;
-            case 3://MULTIPLICAR
+            }
 
-                break;
-            case 4://DIVIDIR 
+        } while (opcionIngresada >= 5 != opcionIngresada < 1 || opcionIngresada == 9);
 
-                break;
-            default:
-                System.out.println("la opcion " + opcionIngresada + " Es invalida!");
-        }
-
+        System.out.println("Gracias por utilizar la application ");
     }
 
     //metodos
@@ -50,4 +43,42 @@ public class Clase5CalculadoraConMetodos {
         return resultado;
     }
 
+    public static float multiplicar(float numero1, float numero2) {
+        float resultado = numero1 * numero2;
+        return resultado;
+    }
+
+    public static float dividir(float numero1, float numero2) {
+        float resultado = 0;
+        if (numero2 != 0) {
+            resultado = numero1 / numero2;
+        } else {
+            error();
+        }
+        return resultado;
+    }
+
+    //metodo : procedimiento 
+    public static void error() {
+        System.out.println("ERROR!!! , no se puede dividir por cero en los numeros reales");
+    }
+
+    public static void mostrarOpciones(int op, float n1, float n2) {
+        switch (op) {
+            case 1://SUMAR
+                System.out.println("El Resultado de la suma es " + sumar(n1, n2));
+                break;
+            case 2://RESTAR
+                System.out.println("El resultado de la resta es " + restar(n1, n2));
+                break;
+            case 3://MULTIPLICAR
+                System.out.println("El resultado de la multiplicacion es " + multiplicar(n1, n2));
+                break;
+            case 4://DIVIDIR 
+                System.out.println("El resultado de la Diovision es : " + dividir(n1, n2));
+                break;
+            default:
+                System.out.println("la opcion " + op + " Es invalida! intente nuevamente ");
+        }
+    }
 }
